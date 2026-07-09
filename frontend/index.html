@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
+  <title>RIDE AND SERVE</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Dosis:500|Poppins:400,600,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  <!-- flatpickr calendar styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+  <style>
+    .what {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 999; /* Ensure the overlay appears above other content */
+    }
+  
+    
+  
+    .overlay-active .what {
+      display: block; /* Show the overlay when the overlay-active class is present */
+    }
+    /* .pre-booked-button {
+  background-color: #4CAF50;  
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+.book-now-button {
+  background-color: #4CAF50; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+} */
+.pre-booked-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.pre-booked-form label {
+  margin-bottom: 5px;
+}
+
+.pre-booked-input {
+  height: 30px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.pre-booked-input[type="time"], .pre-booked-input[type="date"] {
+  height: 30px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3b82f6;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #2563eb;
+}
+
+/* Stop the hero slider from changing height when slides rotate.
+   This is what was pushing the booking form up/down while typing. */
+.slider_section .img-box {
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.slider_section .img-box img {
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.slider_section .detail-box {
+  min-height: 270px;
+}
+@media (max-width: 768px) {
+  .slider_section .img-box {
+    height: 220px;
+  }
+  .slider_section .detail-box {
+    min-height: 0;
+  }
+}
+
+/* Keep the booking form anchored in one stable spot */
+.book_section {
+  position: relative;
+}
+.book_section .book_form {
+  position: relative;
+}
+
+.more-text {
+  margin-bottom: 12px;
+}
+
+/* Professional calendar theme matching the site's navy brand color */
+.flatpickr-calendar {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+  border-radius: 8px;
+}
+.flatpickr-months .flatpickr-month,
+.flatpickr-current-month .flatpickr-monthDropdown-months,
+.flatpickr-weekdays,
+span.flatpickr-weekday {
+  background-color: #1b1f71;
+  color: #ffffff !important;
+  fill: #ffffff;
+}
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+  background-color: transparent;
+}
+.flatpickr-day.selected,
+.flatpickr-day.selected:hover,
+.flatpickr-day.today {
+  background: #1b1f71;
+  border-color: #1b1f71;
+}
+.flatpickr-day.today:not(.selected) {
+  border-color: #1b1f71;
+  color: #1b1f71;
+}
+.flatpickr-day:hover {
+  background: #eef0fb;
+}
+.flatpickr-time input:hover,
+.flatpickr-time .flatpickr-am-pm:hover,
+.flatpickr-time input:focus,
+.flatpickr-time .flatpickr-am-pm:focus {
+  background: #eef0fb;
+}
+.app-dev-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%) translateY(20px);
+  background: #ffffff;
+  color: #1b1f71;
+  padding: 14px 26px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 500;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 9999;
+  white-space: nowrap;
+  max-width: calc(100vw - 32px);
+  text-align: center;
+  box-sizing: border-box;
+}
+.app-dev-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+@media (max-width: 480px) {
+  .app-dev-toast {
+    white-space: normal;
+    width: calc(100vw - 32px);
+    bottom: 24px;
+    font-size: 13px;
+    padding: 12px 18px;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <div class="what overlay-active">
+    <a href="	https://wa.me/923317888806">
+      <img src="whatsappimage2.png" width="50" alt="">
+    </a>
+  </div>
+  <div class="hero_area">
+    
+    <!-- header section strats -->
+    <header class="header_section ">
+      
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" style="cursor: default;">
+            <span>
+              <img src="rideandserve1.png" alt="RIDE AND SERVE " width="100" height="100">RIDE AND SERVE
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+          </button>
+          <div class="collapse navbar-collapse ml-auto  " id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item ">
+                <a class="nav-link" href="index.html">Home </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="why.html">Why Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="blog.html">Blog</a>
+              </li>
+            </ul>
+            <div class="user_option ">
+              <a href="auth.html" class="">
+                Login / signUp
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+
+
+    <!-- slider section -->
+    <section class=" slider_section position-relative">
+      <div class="box">
+        <div id="carouselExampleControls" class="carousel slide " data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="detail-box">
+                      <h1>
+                        Welcome To Ride and Serve
+                      </h1>
+                      <p class="col-lg-11 px-0">
+                        At Ride and Serve, we believe in making urban commuting easy, affordable, and sustainable. Our ride-sharing services are designed to put you in control of your journeys. Whether you're headed to work, meeting friends, or exploring the city, we've got the right ride for you </p>
+                      <div class="more-text" id="heroMore1" style="display:none;">
+                        <p>At Ride and Serve, we believe getting around the city shouldn't be stressful or expensive. Our platform connects you with verified drivers heading your way, so you can share the cost, cut down on traffic, and reach your destination comfortably.</p>
+                        <p>Whether it's your daily office commute, a night out with friends, or exploring a new part of Rawalpindi, we tailor ride options to fit your schedule and budget - not the other way around.</p>
+                      </div>
+                      <a href="#" class="read-more-link" data-target="heroMore1" onclick="return toggleReadMore(this);">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="img-box">
+                      <img src="images/slider-img.png" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item ">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="detail-box">
+                      <h1>
+                        Welcome To Ride and Serve
+                      </h1>
+                      <p class="col-lg-11 px-0">
+                        AI-Powered Ride-hailing and Ride-sharing solution, prioritizing safety with real-time monitoring and a panic button. Beyond security, It minimizes travel costs and traffic congestion, advocating an eco-friendly ride.</p>
+                      <div class="more-text" id="heroMore2" style="display:none;">
+                        <p>Every ride booked through Ride and Serve is backed by real-time monitoring, in-car cameras, and a one-tap panic button that alerts our team the moment something feels wrong.</p>
+                        <p>Beyond safety, our AI-based matching reduces empty trips and traffic congestion, which means shorter travel times, lower fares, and a smaller carbon footprint for everyone.</p>
+                      </div>
+                      <a href="#" class="read-more-link" data-target="heroMore2" onclick="return toggleReadMore(this);">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="img-box">
+                      <img src="rideandserve1.png" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item ">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="detail-box">
+                      <h1>
+                        Welcome To Ride and Serve
+                      </h1>
+                      <p class="col-lg-11 px-0">
+                        Book a ride in seconds, track your driver in real time, and pay the way you want. No surge guessing games, no hidden charges - just a straightforward, reliable ride whenever you need one.
+                      </p>
+                      <div class="more-text" id="heroMore3" style="display:none;">
+                        <p>Fill in your pickup and drop-off, pick a time that works for you, and you're set - no back-and-forth negotiating with drivers. Live tracking lets you know exactly when your ride will arrive.</p>
+                        <p>Pricing is shown upfront with no hidden charges, and every trip is logged so you always have a record of where and when you traveled.</p>
+                      </div>
+                      <a href="#" class="read-more-link" data-target="heroMore3" onclick="return toggleReadMore(this);">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="img-box">
+                      <img src="images/slider-img.png" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="carousel-btn-box">
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/65ae11a48d261e1b5f56424c/1hknv9qvt';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
+  <!-- book section -->
+
+  <section class="book_section ">
+    <div class="container">
+      <div class="col-md-11 col=lg-9 mx-auto px-0">
+        <div class="book_form ">
+          <form id="bookingForm" name="bookingForm" method="post">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <div class="input-group ">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-user" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <select class="form-control" id="passengerType" name="passengerType" required>
+                    <option value="">Select passenger</option>
+                    <option value="1 Female">1 Female</option>
+                    <option value="1 Male">1 Male</option>
+                    <option value="2 Persons">2 Persons</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <div class="input-group ">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-map-signs" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" id="tripFrom" name="tripFrom" placeholder="From - e.g. Bharia Enclave" required>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <div class="input-group ">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" id="tripTo" name="tripTo" placeholder="To - e.g. F 10" required>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <div class="input-group ">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-calendar" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" id="preferredTiming" name="preferredTiming" placeholder="Select date & time" autocomplete="off" required>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <div class="input-group ">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-car" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" id="carType" name="carType" placeholder="Car Type" required>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <div class="input-group ">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <input type="number" class="form-control" id="budget" name="budget" placeholder="Budget" min="1000" step="100" required>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <div class="input-group ">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-phone" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" pattern="[0-9]{10,13}" title="Enter 10 to 13 digit phone number" required>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <div class="input-group ">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" id="pickupLocation" name="pickupLocation" placeholder="Pickup Location" required>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <div class="input-group ">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" id="dropLocation" name="dropLocation" placeholder="Drop Location" required>
+                </div>
+              </div>
+            </div>
+            <div class="booking-message" id="bookingMessage"></div>
+            <div class="btn-box">
+              <button type="submit" class="book-now-button">Book Now</button>
+            </div>
+            <div class="btn-box">
+              <a href="prebookedform.html" target="_blank" class="book-now-button">Pre Booked</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- end book section -->
+
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="images/about-img.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                About Us
+              </h2>
+            </div>
+            <p>
+              Ride N Serve is a comprehensive urban mobility solution offered through a user-friendly app.
+            </p>
+            <div class="more-text" id="aboutMore" style="display:none;">
+              <p>Ride N Serve is a comprehensive urban mobility solution built around one goal: making everyday travel simpler, safer, and more affordable for the people of Rawalpindi and beyond.</p>
+              <p>Through our app, riders can hail a car instantly, share a ride with others heading the same way, or subscribe to a monthly pick-and-drop plan for a fixed daily commute. Every driver is verified, every trip is monitored, and every fare is transparent from the moment you book.</p>
+              <p>We're a local team building a service we'd want to use ourselves - which is why safety features like live camera monitoring and the panic button are built into every ride, not sold as an add-on.</p>
+            </div>
+            <a href="#" class="read-more-link" data-target="aboutMore" onclick="return toggleReadMore(this);">
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- why section -->
+
+  <section class="why_section layout_padding-bottom">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Why Choose Us
+        </h2>
+      </div>
+      <div class="why_container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="box b1"  style="height: 310px">
+              <div class="img-box">
+                <img src="images/carshare.jpg" alt="" class="" />
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Ride-Hailing/Sharing
+                </h5>
+                <p>
+                  Low cost  ride by choosing sharing option and a sense of community. 
+                  Low cost  ride by choosing sharing option and a sense of community. 
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="box b2"  style="height: 310px">
+              <div class="img-box">
+                <img src="camera-removebg-preview.png" alt="" class="" />
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Camera Monitoring
+                </h5>
+                <p>
+                  State-of-the-art cameras, microphones and Panic Button for safety and peace of mind.
+Auto Call in case of Unusual Activity.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="box b3"  style="height: 310px">
+              <div class="img-box">
+                <img src="monthlypickanddrop.png" alt="" class="" />
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Monthly Pick and Drop
+                </h5>
+                <p>
+                  Monthly Pick and Drop
+                  Secured Automated monthly pick and drop service for ultimate convenience and stress-free commuting.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end why section -->
+
+  <!-- app section -->
+
+  <section class="app_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                Download Our App
+              </h2>
+            </div>
+            <p>
+              Book rides, track drivers, and manage your trips on the go with the
+              Ride and Serve app. Enjoy real-time safety monitoring, transparent
+              pricing, and monthly pick-and-drop plans, all from your phone.
+            </p>
+            <div class="btn-box">
+              <a href="#" onclick="return showAppComingSoon(event);">
+                <img src="images/app_store.png" alt="">
+              </a>
+              <a href="#" onclick="return showAppComingSoon(event);">
+                <img src="images/google_play.png" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="images/app-img.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end app section -->
+
+  <!-- blog section -->
+
+  <section class="blog_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Latest From Blog
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="box">
+            <div class="img-box">
+              <img src="images/b1.jpg" alt="">
+            </div>
+            <div class="detail-box">
+              <h6 class="blog_date">
+                29 July 2020
+              </h6>
+              <h5>
+                5 Tips For A Safer Daily Commute
+              </h5>
+              <p>
+                From checking your driver details before boarding to using the in-app panic button, small habits make a big difference. Here's how to stay safe on every ride, whether you're commuting to work or heading home late at night.
+              </p>
+              <div class="more-text" id="blogMore1" style="display:none;">
+                <p>1. Always check your driver's name, car, and number plate against what's shown in the app before getting in.</p>
+                <p>2. Share your trip status with a friend or family member, especially for late-night rides.</p>
+                <p>3. Sit in the back seat where possible and keep the panic button easily accessible.</p>
+                <p>4. Keep your phone charged so live tracking and emergency contact features stay available throughout the trip.</p>
+                <p>5. Report anything unusual right after the ride so our team can look into it quickly.</p>
+              </div>
+              <a href="#" class="read-more-link" data-target="blogMore1" onclick="return toggleReadMore(this);">
+                Read More
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="box">
+            <div class="img-box">
+              <img src="images/b2.jpg" alt="">
+            </div>
+            <div class="detail-box">
+              <h6 class="blog_date">
+                30 July 2020
+              </h6>
+              <h5>
+                How Ride Sharing Saves You Money
+              </h5>
+              <p>
+                Splitting your commute with fellow riders can cut your monthly travel costs significantly. We break down how ride-sharing works, who it's best for, and how much you could realistically save.
+              </p>
+              <div class="more-text" id="blogMore2" style="display:none;">
+                <p>When you share a ride with someone travelling a similar route, the fare is split between passengers instead of paid entirely by one rider - often cutting your cost noticeably compared to a solo trip.</p>
+                <p>It's a great fit for daily commuters with a predictable route and timing, students travelling to and from campus, and anyone looking to lower their monthly transport spend without giving up comfort or safety.</p>
+                <p>Combine it with our monthly pick-and-drop plan for an even more predictable, budget-friendly commute.</p>
+              </div>
+              <a href="#" class="read-more-link" data-target="blogMore2" onclick="return toggleReadMore(this);">
+                Read More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end blog section -->
+
+  <!-- client section -->
+
+  <section class="client_section layout_padding-bottom">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          What Says Our Customers
+        </h2>
+      </div>
+    </div>
+    <div class="container">
+      <div class="col-md-9 mx-auto px-0">
+        <div id="carouselExample2Controls" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExample2Controls" data-slide-to="0" class="active">
+              <img src="images/c1.jpg" alt="">
+            </li>
+            <li data-target="#carouselExample2Controls" data-slide-to="1">
+              <img src="images/c2.jpg" alt="">
+            </li>
+            <li data-target="#carouselExample2Controls" data-slide-to="2">
+              <img src="images/c3.jpg" alt="">
+            </li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="detail-box">
+                <h5>
+                  Jane Addams
+                </h5>
+                <h6>
+                  Daily Commuter
+                </h6>
+                <p>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                  Ride and Serve has completely changed how I get to work. Booking takes seconds, the drivers are polite, and I always feel safe with the real-time tracking and panic button right there in the app.
+                  <i class="fa fa-quote-right" aria-hidden="true"></i>
+                </p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="detail-box">
+                <h5>
+                  John Cavill
+                </h5>
+                <h6>
+                  Monthly Subscriber
+                </h6>
+                <p>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                  I signed up for the monthly pick and drop plan and it's been a game changer. Same trusted driver every day, no more haggling over fares, and my commute costs have dropped noticeably.
+                  <i class="fa fa-quote-right" aria-hidden="true"></i>
+                </p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="detail-box">
+                <h5>
+                  Lisa Joy
+                </h5>
+                <h6>
+                  Frequent Rider
+                </h6>
+                <p>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                  What I love most is the camera monitoring and safety features. As someone who often travels alone in the evenings, that peace of mind matters more to me than anything else.
+                  <i class="fa fa-quote-right" aria-hidden="true"></i>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- end client section -->
+
+  <!-- info section -->
+  <section class="info_section ">
+
+    <div class="container">
+      <div class="info_top ">
+        <div class="row ">
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="info_detail">
+              <a href="index.html">
+                <h4>
+                  <!-- <img src="rideandserve1.png" alt="RIDE AND SERVE " width="50" height="100">RIDE AND SERVE -->
+                </h4>
+              </a>
+              <p>
+                
+              </p>
+              <!-- <div class="social_box">
+                <a href="">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3 mx-auto">
+            <h4>
+              Contact us
+            </h4>
+            <p>
+              
+            </p>
+            <div class="contact_nav">
+              <a href="mailto:alraheemtechnologies1@gmail.com">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  Email:alraheemtechnologies1@gmail.com
+                </span>
+              </a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Easezen+Solutions+Hasan+Chowk+Mureer+Murree+Rd+Chamanzar+Colony+Rawalpindi+46000" target="_blank" rel="noopener noreferrer">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Easezen Solutions, Hasan Chowk, Mureer, Murree Rd, Chamanzar Colony, Rawalpindi, 46000
+                </span>
+              </a>
+              <a href="tel:+923317888806">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call : +92 331 788 8806
+                </span>
+              </a>
+              <a href="https://www.linkedin.com/company/al-raheem-technologies-pvt-ltd/" target="_blank" rel="noopener noreferrer">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                <span>
+                  LinkedIn
+                </span>
+              </a>
+        
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info_form">
+              <h4>
+                SIGN UP TO OUR NEWSLETTER
+              </h4>
+              <form action="https://script.google.com/macros/s/AKfycbwm7JzAmR7AcyDI9An-Epz09jLiy43e7UN5fc_Eas9rQKSx7MICKhWYFKmFH9Ug2Grv1A/exec">
+                <input type="text" placeholder="Enter Your Email" />
+                <button type="submit">
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end info_section -->
+
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="https://html.design/">Al Raheem Technologies</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="js/auth-nav.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+  <div class="app-dev-toast" id="appDevToast">App is under development</div>
+
+  <script>
+    // Nice calendar + time picker for "preferred timing" - replaces the old
+    // fixed 3-day dropdown with an actual date & time chooser.
+    flatpickr('#preferredTiming', {
+      enableTime: true,
+      dateFormat: 'D, d M Y - h:i K',
+      minDate: 'today',
+      time_24hr: false,
+      minuteIncrement: 15,
+      // Force flatpickr's own themed calendar on phones too, instead of the
+      // browser's native date/time control (which was rendering as a blank
+      // field with no visible calendar - that's what looked "broken").
+      disableMobile: true,
+      // Anchor the calendar to the field's outer wrapper (not the flex
+      // input-group), so it drops down directly under the field instead of
+      // squeezing in beside it or floating off to the side.
+      appendTo: document.querySelector('#preferredTiming').closest('.form-group'),
+      allowInput: false
+    });
+  </script>
+  <script>
+    // Shows a small toast for 5 seconds when the App Store / Google Play
+    // badges are clicked, since the mobile app isn't live yet.
+    var appDevToastTimer = null;
+    function showAppComingSoon(event) {
+      if (event) event.preventDefault();
+      var toast = document.getElementById('appDevToast');
+      if (!toast) return false;
+      toast.classList.add('show');
+      if (appDevToastTimer) clearTimeout(appDevToastTimer);
+      appDevToastTimer = setTimeout(function () {
+        toast.classList.remove('show');
+      }, 5000);
+      return false;
+    }
+  </script>
+  <script>
+    // Expands/collapses the extra text right under a "Read More" link,
+    // in the same box - no popup, no page reload.
+    function toggleReadMore(link) {
+      var targetId = link.getAttribute('data-target');
+      var el = document.getElementById(targetId);
+      if (!el) return false;
+      var isHidden = el.style.display === 'none' || el.style.display === '';
+      el.style.display = isHidden ? 'block' : 'none';
+      link.textContent = isHidden ? 'Read Less' : 'Read More';
+      return false;
+    }
+  </script>
+  <script>
+    // Same backend used by auth.html: localhost while testing locally,
+    // your deployed backend URL once it's live.
+    const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+      ? 'http://localhost:3000/api'
+      : 'https://api.ridesnserve.online/api';
+
+    const bookingForm = document.getElementById('bookingForm');
+    const bookingMessage = document.getElementById('bookingMessage');
+
+    function showBookingMessage(text, type = 'error') {
+      bookingMessage.textContent = text;
+      bookingMessage.className = `booking-message ${type}`;
+    }
+
+    function validateBookingForm() {
+      const phoneInput = document.getElementById('phoneNumber');
+      const budgetInput = document.getElementById('budget');
+      const requiredFields = ['passengerType', 'tripFrom', 'tripTo', 'preferredTiming', 'carType', 'budget', 'phoneNumber', 'pickupLocation', 'dropLocation'];
+
+      for (const id of requiredFields) {
+        const field = document.getElementById(id);
+        if (!field || !field.value.trim()) {
+          field && field.classList.add('invalid-field');
+          showBookingMessage('Please complete all fields before booking.', 'error');
+          return false;
+        }
+        field.classList.remove('invalid-field');
+      }
+
+      const phonePattern = /^[0-9]{10,13}$/;
+      if (!phonePattern.test(phoneInput.value.trim())) {
+        phoneInput.classList.add('invalid-field');
+        showBookingMessage('Please enter a valid phone number with 10 to 13 digits.', 'error');
+        return false;
+      }
+
+      const budgetValue = Number(budgetInput.value);
+      if (Number.isNaN(budgetValue) || budgetValue < 1000) {
+        budgetInput.classList.add('invalid-field');
+        showBookingMessage('Budget must be a valid number and at least 1,000.', 'error');
+        return false;
+      }
+
+      return true;
+    }
+
+    bookingForm.addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      if (!validateBookingForm()) {
+        return;
+      }
+
+      const formData = new FormData(bookingForm);
+      const payload = Object.fromEntries(formData.entries());
+
+      try {
+        const res = await fetch(`${API_BASE_URL}/bookings`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+
+        if (!res.ok || !data.success) {
+          throw new Error(data.message || 'Submission failed.');
+        }
+
+        showBookingMessage('Thank you! Your booking request was submitted successfully.', 'success');
+        bookingForm.reset();
+      } catch (error) {
+        console.error('Error!', error.message);
+        showBookingMessage('Unable to submit booking. Please try again later.', 'error');
+      }
+    });
+  </script>
+
+</body>
+
+</html>

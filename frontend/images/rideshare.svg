@@ -1,0 +1,92 @@
+<svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eff8ff"/>
+      <stop offset="100%" stop-color="#d9f2fb"/>
+    </linearGradient>
+    <linearGradient id="carBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2b3080"/>
+      <stop offset="100%" stop-color="#1b1f71"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="400" fill="url(#bgGrad)"/>
+
+  <!-- decorative dotted route -->
+  <path d="M 60 300 Q 200 220 320 260 T 540 180" fill="none" stroke="#93c5fd" stroke-width="4" stroke-dasharray="10 10" stroke-linecap="round"/>
+
+  <!-- start pin -->
+  <g transform="translate(48,278)">
+    <path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 22 12 22s12-13 12-22c0-6.6-5.4-12-12-12z" fill="#3b82f6"/>
+    <circle cx="12" cy="12" r="5" fill="#ffffff"/>
+  </g>
+
+  <!-- end pin -->
+  <g transform="translate(524,158)">
+    <path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 22 12 22s12-13 12-22c0-6.6-5.4-12-12-12z" fill="#ff7070"/>
+    <circle cx="12" cy="12" r="5" fill="#ffffff"/>
+  </g>
+
+  <!-- soft ground shadow -->
+  <ellipse cx="300" cy="255" rx="150" ry="16" fill="#1b1f71" opacity="0.08"/>
+
+  <!-- car body -->
+  <g transform="translate(150,150)">
+    <path d="M10 90
+             L20 55
+             Q30 30 60 28
+             L110 26
+             Q135 26 150 45
+             L175 70
+             L290 78
+             Q300 80 300 92
+             L300 100
+             Q300 110 288 110
+             L18 110
+             Q6 110 6 98
+             L6 98
+             Z"
+          fill="url(#carBody)"/>
+
+    <!-- windows -->
+    <path d="M55 34 L48 58 L120 58 L130 36 Q108 32 80 32 Q66 32 55 34 Z" fill="#bfe0ff" opacity="0.9"/>
+    <path d="M138 38 L128 58 L172 58 L152 40 Q145 38 138 38 Z" fill="#bfe0ff" opacity="0.9"/>
+
+    <!-- door line -->
+    <line x1="125" y1="58" x2="118" y2="110" stroke="#0f1450" stroke-width="2" opacity="0.4"/>
+
+    <!-- headlight -->
+    <rect x="285" y="86" width="14" height="8" rx="3" fill="#ffe9a8"/>
+
+    <!-- wheels -->
+    <circle cx="70" cy="112" r="26" fill="#0f1450"/>
+    <circle cx="70" cy="112" r="11" fill="#cbd5e1"/>
+    <circle cx="235" cy="112" r="26" fill="#0f1450"/>
+    <circle cx="235" cy="112" r="11" fill="#cbd5e1"/>
+  </g>
+
+  <!-- passenger avatars near the car, representing "sharing" -->
+  <g transform="translate(220,190)">
+    <circle cx="0" cy="0" r="13" fill="#3b82f6"/>
+    <circle cx="0" cy="-4" r="5" fill="#ffffff"/>
+    <path d="M-8 10 Q0 0 8 10 L8 14 L-8 14 Z" fill="#ffffff"/>
+  </g>
+  <g transform="translate(246,190)">
+    <circle cx="0" cy="0" r="13" fill="#ff7070"/>
+    <circle cx="0" cy="-4" r="5" fill="#ffffff"/>
+    <path d="M-8 10 Q0 0 8 10 L8 14 L-8 14 Z" fill="#ffffff"/>
+  </g>
+
+  <!-- decorative dots -->
+  <circle cx="500" cy="300" r="5" fill="#93c5fd"/>
+  <circle cx="470" cy="320" r="3" fill="#93c5fd"/>
+  <circle cx="90" cy="90" r="4" fill="#93c5fd"/>
+
+  <!-- wordmark -->
+  <text x="300" y="345" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="30" font-weight="700" fill="#1b1f71" letter-spacing="2">
+    RIDE <tspan fill="#3b82f6">SHARE</tspan>
+  </text>
+  <text x="300" y="368" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="13" fill="#64748b" letter-spacing="1">
+    Together, we go further.
+  </text>
+</svg>

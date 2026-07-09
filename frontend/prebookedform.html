@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Pre-book your ride with Ride and Serve" />
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
+  <title>Pre Book a Ride | RIDE AND SERVE</title>
+
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Dosis:500|Poppins:400,600,700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #d9f2fb 0%, #b7e3f8 40%, #eff8ff 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .prebook_header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 22px 30px;
+    }
+
+    .prebook_back {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.85);
+      color: #1b1f71;
+      font-size: 16px;
+      margin-right: 6px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1);
+      transition: transform 0.15s, background 0.15s;
+    }
+
+    .prebook_back:hover {
+      background: #ffffff;
+      color: #1b1f71;
+      transform: translateX(-2px);
+    }
+
+    .prebook_header img {
+      width: 42px;
+      height: 42px;
+    }
+
+    .prebook_header span {
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.04em;
+      color: #1b1f71;
+      text-transform: uppercase;
+    }
+
+    .prebook_wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 20px 60px;
+    }
+
+    .prebook_shell {
+      width: min(1080px, 100%);
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .prebook_visual {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.1);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .prebook_visual .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(59, 130, 246, 0.12);
+      color: #2563eb;
+      width: fit-content;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 18px;
+    }
+
+    .prebook_visual h1 {
+      font-size: 30px;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 14px;
+      line-height: 1.3;
+    }
+
+    .prebook_visual p.lead {
+      color: #475569;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .prebook_visual ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+    }
+
+    .prebook_visual li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      color: #334155;
+      font-size: 14px;
+    }
+
+    .prebook_visual li i {
+      color: #22c55e;
+    }
+
+    .prebook_visual_image {
+      border-radius: 16px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .prebook_visual_image img {
+      width: 100%;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .prebook_shell {
+        grid-template-columns: 1fr;
+      }
+
+      .prebook_visual {
+        display: none;
+      }
+    }
+
+    .prebook_card {
+      width: 100%;
+      max-width: 460px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+      padding: 36px 34px;
+    }
+
+    .prebook_eyebrow {
+      color: #2563eb;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .prebook_card h2 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 6px;
+    }
+
+    .prebook_card p.subtitle {
+      color: #64748b;
+      margin: 0 0 26px;
+      font-size: 14px;
+    }
+
+    .form_group {
+      margin-bottom: 18px;
+    }
+
+    .form_group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      color: #334155;
+    }
+
+    .form_row {
+      display: flex;
+      gap: 14px;
+    }
+
+    .form_row .form_group {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .input_icon_wrap {
+      position: relative;
+    }
+
+    .input_icon_wrap i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    .form_group input {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 12px 14px 12px 38px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background-color: #f8fafc;
+    }
+
+    .form_group input:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+      background-color: #ffffff;
+    }
+
+    .form_group input.invalid-field {
+      border-color: #dc2626 !important;
+      background-color: #fef2f2 !important;
+    }
+
+    .form_hint {
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 5px;
+    }
+
+    .prebook_submit {
+      width: 100%;
+      border: 0;
+      border-radius: 12px;
+      padding: 13px 14px;
+      font-weight: 600;
+      font-size: 15px;
+      color: #ffffff;
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      cursor: pointer;
+      margin-top: 6px;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+
+    .prebook_submit:hover {
+      opacity: 0.92;
+    }
+
+    .prebook_submit:active {
+      transform: scale(0.99);
+    }
+
+    .prebook_submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .prebook_message {
+      min-height: 22px;
+      margin-top: 16px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .prebook_message.success {
+      color: #15803d;
+    }
+
+    .prebook_message.error {
+      color: #dc2626;
+    }
+
+    @media (max-width: 480px) {
+      .prebook_card {
+        padding: 28px 22px;
+      }
+
+      .form_row {
+        flex-direction: column;
+        gap: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="prebook_header">
+    <a href="index.html" class="prebook_back" aria-label="Back to website">
+      <i class="fa fa-angle-left"></i>
+    </a>
+    <img src="rideandserve1.png" alt="Ride and Serve">
+    <span>Ride and Serve</span>
+  </div>
+
+  <div class="prebook_wrap">
+    <div class="prebook_shell">
+      <div class="prebook_visual">
+        <div class="badge">
+          <i class="fa fa-clock-o"></i>
+          Plan ahead, ride stress-free
+        </div>
+        <h1>Reserve your ride before you even need it.</h1>
+        <p class="lead">Pre-booking locks in your ride details in advance so you're never left waiting last minute. Perfect for flights, meetings, or scheduled pickups.</p>
+        <ul>
+          <li><i class="fa fa-check-circle"></i> Guaranteed pickup at your chosen time</li>
+          <li><i class="fa fa-check-circle"></i> Fixed, upfront pricing</li>
+          <li><i class="fa fa-check-circle"></i> Quick confirmation from our team</li>
+        </ul>
+        <div class="prebook_visual_image">
+          <img src="images/rideshare.svg" alt="Ride and Serve - Pre Booking">
+        </div>
+      </div>
+
+      <div class="prebook_card">
+        <div class="prebook_eyebrow">Pre Booking</div>
+        <h2>Reserve your ride in advance</h2>
+        <p class="subtitle">Fill in your details below and we'll confirm your pre-booking shortly.</p>
+
+        <form id="preBookForm" novalidate>
+          <div class="form_group">
+            <label for="fullName">Full Name</label>
+            <div class="input_icon_wrap">
+              <i class="fa fa-user"></i>
+              <input type="text" id="fullName" name="fullName" placeholder="e.g. Ali Khan" required>
+            </div>
+          </div>
+
+          <div class="form_group">
+            <label for="cnic">CNIC</label>
+            <div class="input_icon_wrap">
+              <i class="fa fa-id-card"></i>
+              <input type="text" id="cnic" name="cnic" placeholder="00000-0000000-0" maxlength="15" required>
+            </div>
+            <div class="form_hint">Format: 00000-0000000-0</div>
+          </div>
+
+          <div class="form_group">
+            <label for="preferredTime">Time</label>
+            <div class="input_icon_wrap">
+              <i class="fa fa-clock-o"></i>
+              <input type="time" id="preferredTime" name="preferredTime" required>
+            </div>
+          </div>
+
+          <div class="form_group">
+            <label for="totalAmount">Total Amount (PKR)</label>
+            <div class="input_icon_wrap">
+              <i class="fa fa-money"></i>
+              <input type="number" id="totalAmount" name="totalAmount" placeholder="e.g. 1500" min="1" step="50" required>
+            </div>
+          </div>
+
+          <button type="submit" class="prebook_submit" id="preBookSubmitBtn">Submit Pre-Booking</button>
+          <div class="prebook_message" id="preBookMessage"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+      ? 'http://localhost:3000/api'
+      : 'https://api.ridesnserve.online/api';
+
+    const preBookForm = document.getElementById('preBookForm');
+    const preBookMessage = document.getElementById('preBookMessage');
+    const submitBtn = document.getElementById('preBookSubmitBtn');
+
+    function showMessage(text, type) {
+      preBookMessage.textContent = text;
+      preBookMessage.className = `prebook_message ${type}`;
+    }
+
+    function validateForm() {
+      const fullName = document.getElementById('fullName');
+      const cnic = document.getElementById('cnic');
+      const preferredTime = document.getElementById('preferredTime');
+      const totalAmount = document.getElementById('totalAmount');
+
+      const fields = [fullName, cnic, preferredTime, totalAmount];
+      fields.forEach(f => f.classList.remove('invalid-field'));
+
+      for (const field of fields) {
+        if (!field.value.trim()) {
+          field.classList.add('invalid-field');
+          showMessage('Please fill in all fields.', 'error');
+          return false;
+        }
+      }
+
+      const cnicPattern = /^\d{5}-\d{7}-\d{1}$/;
+      if (!cnicPattern.test(cnic.value.trim())) {
+        cnic.classList.add('invalid-field');
+        showMessage('CNIC must be in the format 00000-0000000-0.', 'error');
+        return false;
+      }
+
+      if (Number(totalAmount.value) <= 0) {
+        totalAmount.classList.add('invalid-field');
+        showMessage('Total amount must be greater than 0.', 'error');
+        return false;
+      }
+
+      return true;
+    }
+
+    preBookForm.addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      if (!validateForm()) return;
+
+      const payload = {
+        fullName: document.getElementById('fullName').value.trim(),
+        cnic: document.getElementById('cnic').value.trim(),
+        preferredTime: document.getElementById('preferredTime').value,
+        totalAmount: Number(document.getElementById('totalAmount').value)
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+
+      try {
+        const res = await fetch(`${API_BASE_URL}/prebookings`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+
+        if (!res.ok || !data.success) {
+          throw new Error(data.message || 'Submission failed.');
+        }
+
+        showMessage('Pre-booking submitted successfully! We will confirm shortly.', 'success');
+        preBookForm.reset();
+      } catch (error) {
+        console.error('Pre-booking error:', error.message);
+        showMessage('Unable to submit pre-booking. Please try again later.', 'error');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Pre-Booking';
+      }
+    });
+  </script>
+
+</body>
+
+</html>
