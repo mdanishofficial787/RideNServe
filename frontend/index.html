@@ -157,6 +157,7 @@
 
 /* Professional calendar theme matching the site's navy brand color */
 .flatpickr-calendar {
+  z-index: 99999 !important;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
   border-radius: 8px;
 }
@@ -171,15 +172,24 @@ span.flatpickr-weekday {
 .flatpickr-current-month .flatpickr-monthDropdown-months {
   background-color: transparent;
 }
+.flatpickr-day,
+.flatpickr-day:hover,
+.flatpickr-day:focus,
+.flatpickr-day.selected,
+.flatpickr-day.selected:hover,
+.flatpickr-day.today,
+.flatpickr-day.today:not(.selected),
+.flatpickr-day.disabled,
+.flatpickr-day.nextMonthDay,
+.flatpickr-day.prevMonthDay {
+  color: #000000 !important;
+  font-weight: 700;
+}
 .flatpickr-day.selected,
 .flatpickr-day.selected:hover,
 .flatpickr-day.today {
   background: #1b1f71;
   border-color: #1b1f71;
-}
-.flatpickr-day.today:not(.selected) {
-  border-color: #1b1f71;
-  color: #1b1f71;
 }
 .flatpickr-day:hover {
   background: #eef0fb;
@@ -930,10 +940,9 @@ Auto Call in case of Unusual Activity.
       // browser's native date/time control (which was rendering as a blank
       // field with no visible calendar - that's what looked "broken").
       disableMobile: true,
-      // Anchor the calendar to the field's outer wrapper (not the flex
-      // input-group), so it drops down directly under the field instead of
-      // squeezing in beside it or floating off to the side.
-      appendTo: document.querySelector('#preferredTiming').closest('.form-group'),
+      // Append to body to avoid clipping inside form containers and keep the
+      // dropdown visible above the page content.
+      appendTo: document.body,
       allowInput: false
     });
   </script>
