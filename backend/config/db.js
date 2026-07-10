@@ -6,38 +6,22 @@ const dns = require('dns');
 dns.setServers(['8.8.8.8', '8.8.4.4']);
 
 let isConnected = false;
-let connectPromise = null;
 
 async function connectDB() {
-  if (mongoose.connection.readyState === 1) {
-    isConnected = true;
-    return mongoose.connection;
-  }
-
-  if (connectPromise) {
-    return connectPromise;
-  }
+  if (isConnected) return;
 
   if (!process.env.MONGO_URI) {
     throw new Error('MONGO_URI is not set in environment variables');
   }
 
-  connectPromise = mongoose.connect(process.env.MONGO_URI, {
-    serverSelectionTimeoutMS: 5000,
-    maxPoolSize: 10
-  })
-    .then((conn) => {
-      isConnected = true;
-      console.log(`MongoDB connected: ${conn.connection.host}`);
-      return conn;
-    })
-    .catch((err) => {
-      connectPromise = null;
-      console.error('MongoDB connection error:', err.message);
-      throw err;
-    });
-
-  return connectPromise;
+  try {
+    const conn = await mongoose.connect(process.env.MONGO_URI);
+    isConnected = true;
+    console.log(`MongoDB connected: ${conn.connection.host}`);
+  } catch (err) {
+    console.error('MongoDB connection error:', err.message);
+    throw err;
+  }
 }
 
 module.exports = connectDB;
