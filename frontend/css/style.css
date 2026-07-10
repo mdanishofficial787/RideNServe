@@ -402,6 +402,8 @@ a:focus {
 .custom_nav-container {
   z-index: 99999;
   padding: 0;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .custom_nav-container .navbar-toggler {
@@ -412,6 +414,7 @@ a:focus {
   padding: 0;
   width: 37px;
   height: 42px;
+  margin-left: 12px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -462,13 +465,31 @@ a:focus {
   top: 0;
 }
 
-.navbar-brand span {
+.custom_nav-container .navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom_nav-container .navbar-brand span {
   color: #1b1f71;
   text-transform: uppercase;
   font-size: 24px;
   margin: 0;
   font-weight: bold;
-  text-align: right;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom_nav-container .navbar-brand img {
+  display: inline-block;
+  width: 50px;
+  height: auto;
+}
+
+.custom_nav-container .navbar-collapse {
+  justify-content: flex-end;
 }
 
 .user_option {
