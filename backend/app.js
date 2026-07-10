@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const compression = require('compression');
 require('dotenv').config();
 
 const connectDB = require('./config/db');
@@ -10,6 +11,7 @@ const preBookingRoutes = require('./routes/preBookingRoutes');
 const app = express();
 
 // Middleware
+app.use(compression());
 app.use(express.json());
 
 const allowedOrigins = (process.env.CLIENT_ORIGINS || '')
@@ -30,14 +32,10 @@ app.use(
   })
 );
 
-// Connect DB on every request in serverless environments (cached after first call)
-app.use(async (req, res, next) => {
-  try {
-    await connectDB();
-    next();
-  } catch (err) {
-    res.status(500).json({ success: false, message: 'Database connection failed' });
-  }
+// Initialize the database connection once when the app starts.
+// This avoids the extra latency on login/signup requests.
+connectDB().catch((err) => {
+  console.error('Initial database connection failed:', err.message);
 });
 
 // Routes
